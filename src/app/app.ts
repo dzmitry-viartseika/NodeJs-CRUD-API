@@ -56,6 +56,7 @@ export default class Application {
                     this.middlewares.forEach((middleware) => middleware(req, res));
                     const emitted = this.emitter.emit(this._getRouteMask(req.pathname!, req.method!), req, res);
                     if (!emitted) {
+                        console.log('wertey')
                         res.send!(Messages.INVALID_ENDPOINT, Codes.NOT_FOUND);
                     }
                 } catch (err) {
